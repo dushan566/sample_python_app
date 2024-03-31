@@ -35,8 +35,8 @@ jobs:
     - name: Publish to GitHub Packages
       run: |
         echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-        docker build -t ghcr.io/${{ github.repository_owner }}/pythonapp:${{ github.sha }} .
-        docker push ghcr.io/${{ github.repository_owner }}/pythonapp:${{ github.sha }}
+        docker build -t ghcr.io/${{ github.repository_owner }}/${{ github.repository }}/app:${{ github.sha }} .
+        docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository }}/app:${{ github.sha }}
       env: 
         GITHUB_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
         
