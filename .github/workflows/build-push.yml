@@ -34,7 +34,7 @@ jobs:
         
     - name: Publish to GitHub Packages
       run: |
-        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        echo "${{ secrets.AUTOMATION_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
         docker build -t ghcr.io/${{ github.repository_owner }}/your-image-name:${{ github.sha }} .
         docker push ghcr.io/${{ github.repository_owner }}/your-image-name:${{ github.sha }}
         
